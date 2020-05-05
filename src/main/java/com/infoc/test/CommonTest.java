@@ -11,24 +11,43 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.jsoup.nodes.Document;
+
+/**
+ * 	目标：统一从两个网站抓取数据的方法；
+ * 	预期：抓取结果转换为String返回或存入本地；
+ * 	tip：1使用String实例化document
+ * 		 2使用String实例化JSONObject
+ * @author Administrator
+ *
+ */
 public class CommonTest {
 	public static void main(String[] args) throws MalformedURLException, IOException {
-		String url = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
-		String path = "src/main/resources/data.txt";
 		
+		String JCWurl = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
+		String SJSurl = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
+		//本地文件夹路径
+		String path = new File("").getAbsolutePath()+"/src/main/resources/data.txt";
+//		System.out.println(new File("").getAbsolutePath());
+//		System.out.println("====================================");
+		//字符输入流
 		InputStream is = null;
+		//转换流
 		InputStreamReader isr = null;
+		//缓冲字符输入流
 		BufferedReader br = null;
 		
 		File file = null;
 //		FileInputStream fis = null;
 		FileWriter fr = null;
 //		new URL(url).openConnection();
-		is = new URL(url).openStream();
+		is = new URL(SJSurl).openStream();
 		isr = new InputStreamReader(is);
 		file = new File(path);
+		//如文件夹不存在，则创建
 		if(!file.exists()) file.createNewFile();
 		System.out.println("fileExist:"+file.exists());
+		System.out.println(file.getAbsolutePath());
 //		fis = new FileInputStream(file);
 		fr = new FileWriter(file);
 		br = new BufferedReader(isr);
@@ -38,14 +57,18 @@ public class CommonTest {
 //			fr.write(str);
 //		}
 		StringBuffer sb = new StringBuffer();
+		//写入本地文件夹
 		int cp;
 		while((cp = br.read()) != -1) {
 			sb.append((char)cp);
-//			fr.write((char)cp);
+			fr.write((char)cp);
+			fr.flush();
 		}
-		fr.write(sb.toString());
-		fr.flush();
-		System.out.println(sb.toString());
+//		System.out.println(sb.toString());
+		//测试SJS
+		String str = sb.toString();
+		new TestSJSh().SJSTest(str);
+		
 		
 	}
 }

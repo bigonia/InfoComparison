@@ -16,6 +16,7 @@ import net.sf.json.JSONObject;
 public class DataSource {
 //	private final 
 	private static String jcwurl = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
+	private static String sjsurl = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
 	
 	//获取json数据
 	public static JSONObject JsonData(String url) throws MalformedURLException, IOException {
