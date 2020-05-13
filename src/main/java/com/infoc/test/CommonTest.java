@@ -27,7 +27,8 @@ public class CommonTest {
 		String JCWurl = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
 		String SJSurl = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
 		//本地文件夹路径
-		String path = new File("").getAbsolutePath()+"/src/main/resources/data.txt";
+		//String path = new File("").getAbsolutePath()+"/src/main/resources/data.txt";
+		String path = "src/main/resources/data.txt";
 //		System.out.println(new File("").getAbsolutePath());
 //		System.out.println("====================================");
 		//字符输入流
@@ -39,7 +40,7 @@ public class CommonTest {
 		
 		File file = null;
 //		FileInputStream fis = null;
-		FileWriter fr = null;
+		FileWriter fw = null;
 //		new URL(url).openConnection();
 		is = new URL(SJSurl).openStream();
 		isr = new InputStreamReader(is);
@@ -47,9 +48,10 @@ public class CommonTest {
 		//如文件夹不存在，则创建
 		if(!file.exists()) file.createNewFile();
 		System.out.println("fileExist:"+file.exists());
-		System.out.println(file.getAbsolutePath());
+		System.out.println("path:"+path);
+		System.out.println("filePath:"+file.getAbsolutePath());
 //		fis = new FileInputStream(file);
-		fr = new FileWriter(file);
+		fw = new FileWriter(file);
 		br = new BufferedReader(isr);
 		
 //		String str = null;
@@ -61,8 +63,8 @@ public class CommonTest {
 		int cp;
 		while((cp = br.read()) != -1) {
 			sb.append((char)cp);
-			fr.write((char)cp);
-			fr.flush();
+			fw.write((char)cp);
+			fw.flush();
 		}
 //		System.out.println(sb.toString());
 		//测试SJS
