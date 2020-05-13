@@ -19,19 +19,16 @@ public class Config {
 	private static Properties properties = new Properties();
 	
 	//静态代码块；类加载时读取各项配置信息并相应赋值
-	static {
-		//目前需要配置的内容：两个网站url、发送的邮件地址、...
-		
-		//读取propoties /infoComparison/src/main/resources/config.properties
-		InputStream in = ClassLoader
-                .getSystemResourceAsStream("src/main/resources/config.properties");
-		try {
-			properties.load(in);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
+	/*
+	 * static { //目前需要配置的内容：两个网站url、发送的邮件地址、...
+	 * 
+	 * //读取propoties /infoComparison/src/main/resources/config.properties
+	 * InputStream in = ClassLoader
+	 * .getSystemResourceAsStream("src/main/resources/config.properties"); try {
+	 * properties.load(in); } catch (IOException e) { e.printStackTrace(); }
+	 * 
+	 * }
+	 */
 	
 	public void listPropoties() {
 		for (String key : properties.stringPropertyNames()) {

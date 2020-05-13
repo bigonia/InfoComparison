@@ -15,7 +15,11 @@ import org.jsoup.nodes.Document;
 
 
 import net.sf.json.JSONObject;
-
+/**
+ * 	抓取源数据
+ * @author Administrator
+ *
+ */
 public class DataSource {
 //	private final 
 //	private  String jcwurl = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
@@ -23,7 +27,7 @@ public class DataSource {
 	
 	/**
 	 * 	通过流获取json的初始数据
-	 * 	？使用Jsoup直接获得json
+	 * 	
 	 * @param url
 	 * @return JSONObject
 	 * @throws MalformedURLException
