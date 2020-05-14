@@ -13,6 +13,13 @@ public class Config {
 	
 	//巨潮网数据的url
 	public  static String JCW_URL = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
+	public  static String JCW_URL_POST = "http://www.cninfo.com.cn/new/hisAnnouncement/query";
+	//巨潮网的post_url的content
+	public	static String POST_CONTENT = "pageNum=1&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
+//	public	static String POST_CONTENT = "&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
+	//每次查询需要自定义pageNum和seDate
+	public	static String pageNum = "pageNum=";
+	public	static String seDate = "&seDate=";
 	//上交所数据的url
 	public  static String SJS_URL = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
 	//propoties
