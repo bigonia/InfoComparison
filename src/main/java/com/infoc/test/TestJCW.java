@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-import com.infoc.controller.DataSource;
+import com.infoc.data.DataSource;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -39,7 +39,7 @@ public class TestJCW {
 	 */
 	
 	
-	public	static String POST_CONTENT_n = "pageNum=1&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
+	public	static String POST_CONTENT_n = "pageNum=1&seDate=2020-06-02~2020-06-02&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
 	
 	/**
 	 * 		如果输入data数据，则使用data数据生成json用相同的逻辑进行处理，

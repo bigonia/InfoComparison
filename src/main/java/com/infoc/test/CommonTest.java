@@ -14,6 +14,7 @@ import java.net.URL;
 import org.jsoup.nodes.Document;
 
 /**
+ * 	此类无用。6.4
  * 	目标：统一从两个网站抓取数据的方法；
  * 	预期：抓取结果转换为String返回或存入本地；
  * 	tip：1使用String实例化document

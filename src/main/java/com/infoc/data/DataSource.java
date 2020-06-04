@@ -1,4 +1,4 @@
-package com.infoc.controller;
+package com.infoc.data;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -26,9 +26,10 @@ public class DataSource {
 	
 	/**
 	 * 	发送post请求，获得json数据
+	 * 		获得巨潮网的数据：post请求需要不断地更改参数来查询所有数据
 	 * @param url
 	 * @param content
-	 * @return 
+	 * @return JSONObject
 	 * @throws IOException
 	 */
 	public JSONObject getJsonDataByPost(String url,String content) throws IOException {
@@ -85,7 +86,7 @@ public class DataSource {
 	
 	/**
 	 * 	发送get请求，获得json数据
-	 * 	
+	 * 		巨潮网:get请求返回的数据不是全部。
 	 * @param url
 	 * @return JSONObject
 	 * @throws MalformedURLException
@@ -114,6 +115,7 @@ public class DataSource {
 	
 	/**
 	 * 	使用Jsoup直接获得网页源码，返回为Document
+	 * 		上交所以HTML的形式返回了全部数据，之间用Jsoup解析即可
 	 * @param url
 	 * @return	Document
 	 * @throws IOException
@@ -126,6 +128,7 @@ public class DataSource {
 	
 	/**
 	 * 	统一从两个网站抓取数据的方法,抓取结果转换为String返回;
+	 * 		需要修改为：传入content即为post，无则是get
 	 * 	tip：1使用String实例化document
 	 * 		 2使用String实例化JSONObject
 	 * @param url

@@ -8,7 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.infoc.controller.DataSource;
+import com.infoc.data.DataSource;
 
 /**
  * 	测试从上交所抓取的数据是否符合预期

@@ -1,4 +1,4 @@
-package com.infoc.controller;
+package com.infoc.data;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,7 +28,8 @@ public class DataTransform {
 	DateUtils dateUtils = new DateUtils();
 	
 	/**
-	 * 	将json数据实例化
+	 * 	将巨潮网get请求返回的json数据实例化 ，因为测试时发现通过get返回的数据不是全部，
+	 * 		所以这个方法目前毫无用处
 	 * @param data
 	 */
 	public void json2AnnForGet (JSONObject data) {
@@ -70,14 +71,17 @@ public class DataTransform {
 	}
 	
 	/**
-	 * 	处理json数据，因为需要多次查询，所以这个方法要被调用多次
+	 * 	处理巨潮网post请求返回的json数据，
+	 * 		因为需要多次查询，所以这个方法要被调用多次
+	 * 		！totalAnnouncement异常
 	 * @param data
 	 */
 	public void json2AnnForPost(JSONObject data) {
 		
 		//得到json数据中的总公告数量
 		int totalAnnouncement = (Integer) data.get("totalAnnouncement");
-		System.out.println("totalAnnouncement:"+totalAnnouncement);
+		//打印totalAnnouncement
+		System.out.println("json2AnnForPost.totalAnnouncement:"+totalAnnouncement);
 		//公告   
 		JSONArray announcements = (JSONArray) data.get("announcements");
 //		JSONObject announcements = (JSONObject) data.get("announcements");
@@ -97,6 +101,10 @@ public class DataTransform {
 		
 	}
 	
+	/**
+	 * 	上交所返回的html被解析为document，这里处理document
+	 * @param document
+	 */
 	public void Document2Ann(Document document) {
 		//获取tag div
         Elements divs = document.getElementsByTag("div");
@@ -122,6 +130,7 @@ public class DataTransform {
 //		        System.out.println("val:"+val);
         System.out.println("打印a标签:"+a.html());
 	}
+	
 	
 	public List<Announcement> getJsjAnn() {
 		return jsjAnn;

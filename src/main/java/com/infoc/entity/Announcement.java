@@ -42,6 +42,10 @@ public class Announcement {
 		this.time = time;
 		this.source = source;
 	}
+	@Override
+	public String toString() {
+		return "Announcement [code=" + code + ", title=" + title + ", time=" + time + ", source=" + source + "]";
+	}
 	
 	
 	
