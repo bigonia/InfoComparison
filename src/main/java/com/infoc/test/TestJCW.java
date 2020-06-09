@@ -14,8 +14,8 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
- * 	测试从巨潮网抓取的数据是否符合预期
- * 	update from: 测试数据抓取和处理的内部逻辑
+ * 	测试从巨潮网抓取的数据是否符合预期、打印一部分巨潮网的数据
+ * 	 测试数据抓取和处理的内部逻辑
  * @author Administrator
  *
  */
@@ -25,9 +25,8 @@ public class TestJCW {
 	
 	public  static String JCW_URL_POST = "http://www.cninfo.com.cn/new/hisAnnouncement/query";
 	//巨潮网的post_url的content
-	public	static String POST_CONTENT = "pageNum=1&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
-	public	static String POST_CONTENT_2 = "pageNum=2&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
-	public	static String POST_CONTENT_3 = "pageNum=3&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
+	public	static String POST_CONTENT = "pageNum=1&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh";
+//	public	static String POST_CONTENT = "pageNum=1&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
 	
 	/**
 	 * 565
@@ -38,8 +37,6 @@ public class TestJCW {
 	 * 
 	 */
 	
-	
-	public	static String POST_CONTENT_n = "pageNum=1&seDate=2020-06-02~2020-06-02&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
 	
 	/**
 	 * 		如果输入data数据，则使用data数据生成json用相同的逻辑进行处理，

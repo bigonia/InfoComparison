@@ -20,12 +20,19 @@
 
 #### 已完成
 
-######  截至至6.4
-- 完成抓取上交所的原始数据：返回为html,请求方式为get；url:http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm ;
+######  截止至6.4
+- 完成抓取上交所的原始数据：返回为html,请求方式为get；url: ;
 - 完成抓取巨潮网的原始数据：返回为json，请求方式为post：url:http://www.cninfo.com.cn/new/hisAnnouncement/query ;参数：pageNum=1&seDate=2020-06-04~2020-06-04&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true 注意参数需要再次配置，一次无法传回所有数据；
 - 初步定义实体类，后面看情况修改；
 - 原始数据的处理，公告内容解析后以lis的形式存储在系统；
 - ...
+
+######  6.9
+- 优化部分代码和功能，无新功能实现 ;
+- 删除部分无用类和代码、注释；
+- post请求的参数无需全部添加，大部分可以删除；
+- 配置类的更新；
+
 
 #### 具体实现
 

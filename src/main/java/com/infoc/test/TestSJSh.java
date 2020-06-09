@@ -11,12 +11,13 @@ import org.jsoup.select.Elements;
 import com.infoc.data.DataSource;
 
 /**
- * 	测试从上交所抓取的数据是否符合预期
+ * 	测试从上交所抓取的数据是否符合预期、打印一部分上交所的数据
  * 	update from: 测试数据抓取和处理的内部逻辑
  * @author Administrator
  *
  */
 public class TestSJSh {
+	
 	public static String sjsurl = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
 	
 	/**
@@ -26,8 +27,6 @@ public class TestSJSh {
 	 * @throws IOException
 	 */
 	public void SJSTest(String data) throws IOException {
-		
-		
 		
 		//document
 		Document document = null;

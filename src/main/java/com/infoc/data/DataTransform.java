@@ -73,10 +73,11 @@ public class DataTransform {
 	/**
 	 * 	处理巨潮网post请求返回的json数据，
 	 * 		因为需要多次查询，所以这个方法要被调用多次
+	 * 			返回Boolean类型，hasMore
 	 * 		！totalAnnouncement异常
 	 * @param data
 	 */
-	public void json2AnnForPost(JSONObject data) {
+	public Boolean json2AnnForPost(JSONObject data) {
 		
 		//得到json数据中的总公告数量
 		int totalAnnouncement = (Integer) data.get("totalAnnouncement");
@@ -98,6 +99,9 @@ public class DataTransform {
 			Announcement ann = new Announcement(code, title, time ,AnnSource.JCW);
 			jcwAnn.add(ann);
 		}
+		
+		Boolean hasMore = (Boolean)data.get("hasMore");
+		return hasMore;
 		
 	}
 	

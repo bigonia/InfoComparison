@@ -27,8 +27,8 @@ public class DataTransformTest {
 	
 	public static void main(String[] args) throws Exception {
 		DataTransformTest test = new DataTransformTest();
-//		test.JCWTest();
-		test.SJSTest();
+		test.JCWTest();
+//		test.SJSTest();
 	}
 	
 	/**
