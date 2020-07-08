@@ -25,7 +25,7 @@ public class TestJCW {
 	
 	public  static String JCW_URL_POST = "http://www.cninfo.com.cn/new/hisAnnouncement/query";
 	//巨潮网的post_url的content
-	public	static String POST_CONTENT = "pageNum=1&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh";
+	public	static String POST_CONTENT = "pageNum=1&seDate=2020-07-08~2020-07-08&pageSize=30&column=szse&tabName=fulltext&plate=sh";
 //	public	static String POST_CONTENT = "pageNum=1&seDate=2020-05-14~2020-05-14&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
 	
 	/**

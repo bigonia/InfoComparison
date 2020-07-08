@@ -14,17 +14,17 @@ public class Config {
 	public static DateUtils date = new DateUtils();
 	
 	//巨潮网数据的url
-	public  static String JCW_URL = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
-	public  static String JCW_URL_POST = "http://www.cninfo.com.cn/new/hisAnnouncement/query";
+	public String JCW_URL = "http://www.cninfo.com.cn/new/index/getAnnouces?type=sh";
+	public String JCW_URL_POST = "http://www.cninfo.com.cn/new/hisAnnouncement/query";
 	//巨潮网的post_url的content
-	public	static String POST_CONTENT = "pageNum=1&seDate=2020-06-04~2020-06-04&pageSize=30&column=szse&tabName=fulltext&plate=sh";
+	public String POST_CONTENT = "pageNum=1&seDate=2020-06-04~2020-06-04&pageSize=30&column=szse&tabName=fulltext&plate=sh";
 //	public	static String POST_CONTENT = "pageNum=1&seDate=2020-06-04~2020-06-04&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
 	//每次查询需要自定义pageNum和seDate
-	public	static String pageNum = "pageNum=";
-	public	static String seDate = "&seDate="+date.getSetData();
-	public	static String Custom_CONTENT = "&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
+	public String pageNum = "pageNum=";
+	public String setDate = "&setDate=";
+	public String otherContent = "&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
 	//上交所数据的url
-	public  static String SJS_URL = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
+	public String SJS_URL = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
 	//propoties
 	private static Properties properties = new Properties();
 	
@@ -48,6 +48,17 @@ public class Config {
 	
 	public static void main(String[] args) {
 		new Config().listPropoties();
+	}
+	
+	/**
+	 * 	返回指定日期和页数的content
+	 * @param num
+	 * @return
+	 */
+	public String getContent(int num) {
+		
+		return pageNum+String.valueOf(num)+setDate+date.getSetData()+otherContent;
+		
 	}
 	
 }

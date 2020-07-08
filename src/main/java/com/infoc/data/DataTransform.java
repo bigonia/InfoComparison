@@ -82,13 +82,9 @@ public class DataTransform {
 		//得到json数据中的总公告数量
 		int totalAnnouncement = (Integer) data.get("totalAnnouncement");
 		//打印totalAnnouncement
-		System.out.println("json2AnnForPost.totalAnnouncement:"+totalAnnouncement);
+		//System.out.println("json2AnnForPost.totalAnnouncement:"+totalAnnouncement);
 		//公告   
 		JSONArray announcements = (JSONArray) data.get("announcements");
-//		JSONObject announcements = (JSONObject) data.get("announcements");
-//		JSONArray announcementsArr = JSONArray.fromObject(announcements);
-//		java.lang.ClassCastException: net.sf.json.JSONObject 
-//			cannot be cast to net.sf.json.JSONArray
 		//announcements集合中即为公告信息
 		for (Object object : announcements) {
 			JSONObject json = JSONObject.fromObject(object);

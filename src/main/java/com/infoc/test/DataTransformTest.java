@@ -21,6 +21,8 @@ import net.sf.json.JSONObject;
  */
 public class DataTransformTest {
 	
+	public Config config = new Config();
+	
 	public DataSource dataSource = new DataSource();
 	
 	public DataTransform dataTransform = new DataTransform();
@@ -39,7 +41,7 @@ public class DataTransformTest {
 		
 //		JSONObject jsonData = dataSource.getJsonDataByGet(Config.JCW_URL);
 		JSONObject jsonData = dataSource
-				.getJsonDataByPost(Config.JCW_URL_POST,Config.POST_CONTENT);
+				.getJsonDataByPost(config.JCW_URL_POST,config.POST_CONTENT);
 //		dataTransform.json2AnnForGet(jsonData);
 		dataTransform.json2AnnForPost(jsonData);
 		List<Announcement> jcwAnn = dataTransform.getJcwAnn();
@@ -56,7 +58,7 @@ public class DataTransformTest {
 	 * @throws IOException
 	 */
 	public void SJSTest() throws IOException {
-		Document document = dataSource.getHtmlData(Config.SJS_URL);
+		Document document = dataSource.getHtmlData(config.SJS_URL);
 		dataTransform.Document2Ann(document);
 	}
 	
