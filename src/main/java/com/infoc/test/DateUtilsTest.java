@@ -13,6 +13,10 @@ public class DateUtilsTest {
 		System.out.println(dateUtils.getNextyMd());
 		System.out.println(dateUtils.getHm());
 		System.out.println(dateUtils.getSetData());
+		
+		String timestamp = "1595606400000";
+		String timestamp2String = dateUtils.timestamp2String(timestamp);
+		System.out.println(timestamp2String);
 	}
 	
 }

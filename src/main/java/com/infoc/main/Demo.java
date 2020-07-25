@@ -25,21 +25,24 @@ public class Demo {
 	
 	public void run() throws IOException {
 		boolean hasNext = true;
-		while(hasNext!=false){	
+		while(hasNext!=false&&beginnum<100){	
 			content = config.getContent(beginnum);
 			JSONObject jsonDataByPost = dataSource.getJsonDataByPost(jcwurl, content);
 			hasNext = dataT.json2AnnForPost(jsonDataByPost);
 			beginnum++;
-			if(beginnum%5==0) {
-				System.out.println(beginnum+"||"
-						+content+"||"
-						+dataT.getJcwAnn().size()
-						);
-			}
+//			if(beginnum%5==0) {
+//				System.out.println(beginnum+"||"
+//						+content+"||"
+//						+dataT.getJcwAnn().size()
+//						);
+//			}
 		};
 		
 		List<Announcement> jcwAnn = dataT.getJcwAnn();
 		System.out.println("jcw.size:"+jcwAnn.size());
+		for (Announcement announcement : jcwAnn) {
+			System.out.println(announcement);
+		}
 	}
 	
 	public static void main(String[] args) {
