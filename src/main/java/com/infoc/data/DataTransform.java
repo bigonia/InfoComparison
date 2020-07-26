@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.xml.transform.Source;
+
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -22,7 +24,7 @@ import net.sf.json.JSONObject;
  */
 public class DataTransform {
 	
-	private List<Announcement> jsjAnn = new LinkedList<Announcement>();
+	private List<Announcement> sjsAnn = new LinkedList<Announcement>();
 	private List<Announcement> jcwAnn = new LinkedList<Announcement>();
 	
 	DateUtils dateUtils = new DateUtils();
@@ -106,37 +108,57 @@ public class DataTransform {
 	 * @param document
 	 */
 	public void Document2Ann(Document document) {
+		
 		//获取tag div
         Elements divs = document.getElementsByTag("div");
-        System.out.println("获取div标签;div.size:"+divs.size());
+//        System.out.println("获取div标签;div.size:"+divs.size());
         Element div = divs.get(0);
         //打印div
         //System.out.println("printdiv:"+div.html());
         //得到div,获取dl
         Elements dls = div.getElementsByTag("dl");
-        System.out.println("获取dl标签;dls.size:"+dls.size());
+//        System.out.println("获取dl标签;dls.size:"+dls.size());
         Element dl = dls.get(0);
         //得到dl，获取dd
         Elements dds = dl.getElementsByTag("dd");
-        System.out.println("获取dd标签;dds.size:"+dds.size());
+//        System.out.println("获取dd标签;dds.size:"+dds.size());
         //得到dd，获取所需数据
-        Element dd1 = dds.get(0);
-        Elements ems = dd1.getElementsByTag("em");
-        Element em = ems.get(0);
-        Elements as = em.getElementsByTag("a");
-        Element a = as.get(0);
-        //val为input数据
-//		        String val = a.val();
-//		        System.out.println("val:"+val);
-        System.out.println("打印a标签:"+a.html());
+        
+        for (Element dd : dds) {
+        	//实例化对象
+        	Announcement ann = new Announcement();
+    		ann.setSource(AnnSource.SJS);
+        	//data-time标签,设置时间,
+        	Elements datatime = dd.getElementsByAttribute("data-time");
+        	Element time = datatime.get(0);
+        	//有大量多余代码，需做处理
+        	ann.setTime(time.html().substring(6, 16));
+        	
+        	Elements ems = dd.getElementsByTag("em");
+            Element em = ems.get(0);
+            Elements as = em.getElementsByTag("a");
+            Element a = as.get(0);
+            //获取标签内容
+            String message = a.html();
+            String[] split = message.split("： ");
+            String code = split[0];
+            String title = split[1];
+            ann.setCode(Integer.parseInt(code));
+            ann.setTitle(title);
+//            System.out.println(code+"="+o);
+//            System.out.println(a.html());
+//            ann.setTitle(a.html());
+            sjsAnn.add(ann);
+		}
+        
 	}
 	
 	
-	public List<Announcement> getJsjAnn() {
-		return jsjAnn;
+	public List<Announcement> getSjsAnn() {
+		return sjsAnn;
 	}
-	public void setJsjAnn(List<Announcement> jsjAnn) {
-		this.jsjAnn = jsjAnn;
+	public void setSjsAnn(List<Announcement> jsjAnn) {
+		this.sjsAnn = jsjAnn;
 	}
 	public List<Announcement> getJcwAnn() {
 		return jcwAnn;

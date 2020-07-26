@@ -42,9 +42,45 @@ public class Announcement {
 		this.time = time;
 		this.source = source;
 	}
+	
+	public Announcement() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "Announcement [code=" + code + ", title=" + title + ", time=" + time + ", source=" + source + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + code;
+		result = prime * result + ((time == null) ? 0 : time.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Announcement other = (Announcement) obj;
+		if (code != other.code)
+			return false;
+		if (time == null) {
+			if (other.time != null)
+				return false;
+		} else if (!time.equals(other.time))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
 	}
 	
 	

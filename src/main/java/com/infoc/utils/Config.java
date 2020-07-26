@@ -22,7 +22,13 @@ public class Config {
 	//每次查询需要自定义pageNum和seDate
 	public String pageNum = "pageNum=";
 	public String setDate = "&setDate=";
-	public String otherContent = "&pageSize=30&column=szse&tabName=fulltext&plate=sh&stock=&searchkey=&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
+	//column=sse_latest&pageNum=1&pageSize=30&sortName=&sortType=&clusterFlag=false
+	
+	//这组查询100以上条数据会报错
+//	public String otherContent = "&pageSize=30&column=szse&secid=&category=&trade=&sortName=&sortType=&isHLtitle=true";
+	//
+	public String otherContent = "&column=sse_latest&pageSize=30&sortName=&sortType=&clusterFlag=false";
+	
 	//上交所数据的url
 	public String SJS_URL = "http://www.sse.com.cn/disclosure/listedinfo/bulletin/s_docdatesort_desc_2019openpdf.htm";
 	//propoties
@@ -51,13 +57,14 @@ public class Config {
 	}
 	
 	/**
-	 * 	返回指定日期和页数的content
+	 * 	返回指定日期和页数的content，日期？
 	 * @param num
 	 * @return
 	 */
 	public String getContent(int num) {
 		
-		return pageNum+String.valueOf(num)+setDate+date.getSetData()+otherContent;
+//		return pageNum+String.valueOf(num)+setDate+date.getSetData()+otherContent;
+		return pageNum+String.valueOf(num)+otherContent;
 		
 	}
 	
